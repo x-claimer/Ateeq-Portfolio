@@ -1,7 +1,7 @@
 export const LINKS = {
   github: "https://github.com/x-claimer",
   linkedin: "https://www.linkedin.com/in/mohammedateequrrehman/",
-  email: "mailto:ateeq.work@gmail.com",
+  email: "mailto:ateeq13.rehman@gmail.com",
 };
 
 export const loaderAnimation = [

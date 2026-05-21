@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(winget upgrade:*)"
+      "Bash(winget upgrade:*)",
+      "Bash(Remove-Item *)",
+      "WebFetch(domain:mohammed-syed.netlify.app)",
+      "Bash(curl -L \"https://picsum.photos/seed/atq1/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo1.jpg\")",
+      "Bash(curl -L \"https://picsum.photos/seed/atq2/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo2.jpg\")",
+      "Bash(curl -L \"https://picsum.photos/seed/atq3/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo3.jpg\")",
+      "Bash(curl -L \"https://picsum.photos/seed/atq4/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo4.jpg\")",
+      "Bash(curl -L \"https://picsum.photos/seed/atq5/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo5.jpg\")",
+      "Bash(git *)"
     ]
   }
 }

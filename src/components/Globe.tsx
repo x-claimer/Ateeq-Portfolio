@@ -8,9 +8,7 @@ const GlobeComponent = () => {
   const visitedCountries = [
     "United States of America",
     "India",
-    "Pakistan",
     "United Arab Emirates",
-    "Saudi Arabia",
   ];
 
   onMount(() => {

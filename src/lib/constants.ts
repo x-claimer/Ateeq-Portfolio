@@ -1,6 +1,6 @@
 export const LINKS = {
-  github: "https://github.com/MAteeq786",
-  linkedin: "https://linkedin.com/in/mohammed-ateeq-b72163166",
+  github: "https://github.com/x-claimer",
+  linkedin: "https://www.linkedin.com/in/mohammedateequrrehman/",
   email: "mailto:ateeq.work@gmail.com",
 };
 

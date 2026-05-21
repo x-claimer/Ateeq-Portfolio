@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../lib/projects";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<script>
+  import { animate, type AnimationSequence } from "motion";
+  import { loaderAnimation } from "../../lib/constants";
+  animate([loaderAnimation] as AnimationSequence);
+</script>
+
+<Layout
+  description={project.description}
+  title={`${project.name} — Mohammed Ateeq`}
+>
+  <main class="w-full min-h-screen max-w-3xl mx-auto px-6 py-10 text-neutral-100">
+    <a
+      class="inline-flex items-center gap-2 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-10 border border-neutral-600 rounded-lg text-sm transition-colors"
+      href="/projects"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Projects
+    </a>
+
+    <div class="mb-8">
+      <p class="text-primary-400 text-sm font-medium uppercase tracking-wider mb-2">
+        {project.role}
+      </p>
+      <h1 class="text-4xl font-bold">{project.name}</h1>
+    </div>
+
+    <section class="mb-8">
+      <p class="text-gray-300 font-light leading-relaxed">{project.description}</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">Features</h2>
+      <ul class="flex flex-col gap-3">
+        {
+          project.features.map((feature) => (
+            <li class="flex items-start gap-3 text-sm text-gray-300 font-light">
+              <span class="text-primary-400 mt-0.5 shrink-0">▹</span>
+              {feature}
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-xl font-bold mb-4">Tech Stack</h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          project.tech.map((tag) => (
+            <span class="text-sm bg-white/10 px-3 py-1 rounded-full text-gray-300">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-bold mb-4">View the Project</h2>
+      <div class="flex flex-wrap gap-3">
+        {
+          project.links.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-5 py-2 rounded-lg border border-darkslate-100 hover:border-primary-500 bg-darkslate-500 text-sm transition-colors hover:text-primary-400"
+            >
+              {link.label}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+  </main>
+</Layout>

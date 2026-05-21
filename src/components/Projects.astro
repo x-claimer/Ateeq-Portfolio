@@ -1,0 +1,17 @@
+---
+import Card from "./Card/index.astro";
+import { projects } from "../lib/projects";
+---
+
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="Projects" href="/projects">
+  <div class="flex flex-col mt-2 divide-y divide-darkslate-100">
+    {
+      projects.map((project) => (
+        <div class="py-3 flex flex-col gap-1">
+          <span class="text-sm font-medium">{project.name}</span>
+          <span class="text-xs text-gray-400">{project.role}</span>
+        </div>
+      ))
+    }
+  </div>
+</Card>

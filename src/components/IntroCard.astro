@@ -7,10 +7,12 @@ import { Image } from "astro:assets";
 ---
 
 <Card colSpan="md:col-span-3" rowSpan="md:row-span-4">
-  <div class="flex w-full h-full">
+  <div id="intro-clickable" class="flex w-full h-full cursor-pointer">
     <div class="flex flex-col justify-between md:max-h-[300px] gap-4">
       <div class="flex flex-col h-full">
-        <h6 class="text-sm font-light m-0 text-gray-500">welcome</h6>
+        <h6 class="text-sm font-light m-0 text-gray-500">
+          Welcome <span class="text-xs opacity-50">— click to learn more</span>
+        </h6>
         <p class="m-0 font-light text-xl">
           Hi, I'm <b class="font-bold">Mohammed Ateeq</b>, a Data Engineer
           passionate about building scalable data pipelines, analytics platforms,
@@ -40,10 +42,105 @@ import { Image } from "astro:assets";
     </div>
     <Image
       alt="avatar of Mohammed Ateeq"
-      class="w-auto max-h-[300px] select-none absolute right-[-110px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
+      class="w-auto max-h-[300px] select-none absolute right-[-10px] bottom-[-20px] z-[-1] opacity-50 md:opacity-100 md:relative md:right-auto md:bottom-auto md:z-auto pointer-events-none"
       height="300"
       src="/me.webp"
       width="300"
     />
   </div>
 </Card>
+
+<!-- About Me Modal -->
+<div
+  id="about-modal"
+  class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
+  aria-modal="true"
+  role="dialog"
+  aria-label="About Me"
+>
+  <div
+    id="about-modal-panel"
+    class="bg-darkslate-500 border border-darkslate-100 rounded-xl p-8 max-w-2xl w-full mx-4 relative scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto"
+  >
+    <button
+      id="close-about-modal"
+      class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1 rounded"
+      aria-label="Close"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <h2 class="text-2xl font-bold mb-6">About Me</h2>
+
+    <div class="flex flex-col gap-4 text-sm font-light text-neutral-200">
+      <p>
+        Hi, I'm Ateeq, a Data Engineer with a passion for building robust data
+        infrastructure and end-to-end pipelines.
+      </p>
+      <div>
+        <p class="mb-2">My primary tools of choice include:</p>
+        <ul class="list-disc list-inside space-y-1">
+          <li>Python</li>
+          <li>Apache Spark</li>
+          <li>FastAPI</li>
+          <li>React / Next.js</li>
+          <li>PostgreSQL</li>
+          <li>Docker &amp; Kubernetes</li>
+        </ul>
+      </div>
+      <p>
+        I specialize in designing data models, ETL workflows, and real-time
+        streaming systems. I enjoy bridging the gap between raw data and
+        meaningful business decisions.
+      </p>
+      <p>
+        While I have my go-to stack, I always choose the right tool for the job.
+        My goal is delivering reliable, scalable data solutions that teams can
+        actually trust and build on.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  const clickable = document.getElementById("intro-clickable");
+  const modal = document.getElementById("about-modal");
+  const panel = document.getElementById("about-modal-panel");
+  const closeBtn = document.getElementById("close-about-modal");
+
+  function openModal() {
+    modal?.classList.remove("opacity-0", "pointer-events-none");
+    modal?.classList.add("opacity-100", "pointer-events-auto");
+    panel?.classList.remove("scale-95");
+    panel?.classList.add("scale-100");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal?.classList.add("opacity-0", "pointer-events-none");
+    modal?.classList.remove("opacity-100", "pointer-events-auto");
+    panel?.classList.add("scale-95");
+    panel?.classList.remove("scale-100");
+    document.body.style.overflow = "";
+  }
+
+  clickable?.addEventListener("click", (e) => {
+    if ((e.target as Element).closest("a")) return;
+    openModal();
+  });
+
+  closeBtn?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    closeModal();
+  });
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+</script>

@@ -1,0 +1,87 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../lib/projects";
+
+const roles = ["All", ...Array.from(new Set(projects.map((p) => p.role)))];
+---
+
+<script>
+  import { animate, type AnimationSequence } from "motion";
+  import { loaderAnimation } from "../../lib/constants";
+  animate([loaderAnimation] as AnimationSequence);
+</script>
+
+<Layout
+  description="A collection of data engineering, backend, and full-stack projects by Mohammed Ateeq."
+  title="Projects — Mohammed Ateeq"
+>
+  <main class="w-full min-h-screen max-w-3xl mx-auto px-6 py-10 text-neutral-100">
+    <a
+      class="inline-flex items-center gap-2 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-10 border border-neutral-600 rounded-lg text-sm transition-colors"
+      href="/"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back
+    </a>
+
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-4xl font-bold">Projects</h1>
+      <select
+        id="role-filter"
+        class="bg-darkslate-500 border border-darkslate-100 text-gray-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-primary-500 transition-colors cursor-pointer"
+      >
+        {roles.map((role) => <option value={role}>{role}</option>)}
+      </select>
+    </div>
+
+    <ul class="flex flex-col gap-3" id="projects-list">
+      {
+        projects.map((project) => (
+          <li data-role={project.role}>
+            <a
+              href={`/projects/${project.slug}`}
+              class="flex items-center justify-between p-5 rounded-xl border border-darkslate-100 hover:border-primary-500 bg-darkslate-500 transition-colors group"
+            >
+              <div class="flex flex-col gap-1">
+                <span class="text-base font-semibold group-hover:text-primary-400 transition-colors">
+                  {project.name}
+                </span>
+                <span class="text-sm text-gray-400">{project.role}</span>
+                <div class="flex flex-wrap gap-2 mt-2">
+                  {project.tech.map((tag) => (
+                    <span class="text-xs bg-white/10 px-2 py-0.5 rounded text-gray-300">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-500 group-hover:text-primary-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all shrink-0 ml-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7v10" />
+              </svg>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
+
+<script>
+  const select = document.getElementById("role-filter") as HTMLSelectElement;
+  const items  = document.querySelectorAll<HTMLLIElement>("#projects-list li");
+
+  select.addEventListener("change", () => {
+    const role = select.value;
+    items.forEach((item) => {
+      item.style.display = role === "All" || item.dataset.role === role ? "" : "none";
+    });
+  });
+</script>

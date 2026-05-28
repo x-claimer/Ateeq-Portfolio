@@ -1,6 +1,6 @@
 ---
 import Card from "./Card/index.astro";
-import { galleryImages } from "../lib/gallery";
+import { galleryImages } from "../data/gallery";
 
 const previews = galleryImages.slice(0, 4);
 ---
@@ -8,12 +8,21 @@ const previews = galleryImages.slice(0, 4);
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Gallery" href="/gallery">
   <div class="grid grid-cols-2 gap-1 mt-2">
     {
-      previews.map((img) => (
-        <img
-          src={img.src}
-          alt={img.alt}
-          class="w-full aspect-square object-cover rounded-md"
-        />
+      previews.map((item) => (
+        <div class="relative">
+          <img
+            src={item.type === "video" ? item.src.replace(/\.[^.]+$/, ".jpg") : item.src}
+            alt={item.alt}
+            class="w-full aspect-square object-cover rounded-md"
+          />
+          {item.type === "video" && (
+            <div class="absolute inset-0 flex items-center justify-center bg-black/40 rounded-md pointer-events-none">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          )}
+        </div>
       ))
     }
   </div>

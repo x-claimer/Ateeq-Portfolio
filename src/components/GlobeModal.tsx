@@ -1,17 +1,7 @@
 import { createSignal, createEffect, onMount, onCleanup } from "solid-js";
 import * as d3 from "d3";
-import worldData from "../lib/world.json";
-
-const visitedCountries = [
-  { geoName: "India", displayName: "India", code: "in", coords: [78, 20] as [number, number] },
-  { geoName: "USA", displayName: "United States", code: "us", coords: [-96, 38] as [number, number] },
-  { geoName: "United Arab Emirates", displayName: "UAE", code: "ae", coords: [54, 24] as [number, number] },
-];
-
-const wantToVisit = [
-  { geoName: "Turkey", displayName: "Turkey", code: "tr", coords: [35, 39] as [number, number] },
-  { geoName: "Switzerland", displayName: "Switzerland", code: "ch", coords: [8, 47] as [number, number] },
-];
+import worldData from "../data/world.json";
+import { visitedCountries, wantToVisitCountries as wantToVisit } from "../data/countries";
 
 export default function GlobeModal() {
   const [isOpen, setIsOpen] = createSignal(false);

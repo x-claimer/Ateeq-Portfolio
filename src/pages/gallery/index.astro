@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { galleryImages } from "../../lib/gallery";
+import { galleryImages } from "../../data/gallery";
 ---
 
 <script>
@@ -28,15 +28,34 @@ import { galleryImages } from "../../lib/gallery";
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {
-        galleryImages.map((img) => (
-          <div class="relative overflow-hidden rounded-xl border border-darkslate-100 hover:border-primary-500 transition-colors group/img">
-            <img
-              src={img.src}
-              alt={img.alt}
-              class="w-full aspect-[4/3] object-cover group-hover/img:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-end">
-              <p class="text-white text-sm font-medium px-4 py-3">{img.caption}</p>
+        galleryImages.map((item) => (
+          <div class="relative overflow-hidden rounded-xl border border-darkslate-100 hover:border-primary-500 transition-colors group/item">
+            {item.type === "video" ? (
+              <video
+                src={item.src}
+                class="w-full aspect-[4/3] object-cover"
+                muted
+                loop
+                playsinline
+                onmouseover="this.play()"
+                onmouseout="this.pause();this.currentTime=0"
+              />
+            ) : (
+              <img
+                src={item.src}
+                alt={item.alt}
+                class="w-full aspect-[4/3] object-cover group-hover/item:scale-105 transition-transform duration-300"
+              />
+            )}
+            {item.type === "video" && (
+              <div class="absolute top-3 right-3 bg-black/60 rounded-full p-1.5 pointer-events-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            )}
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover/item:opacity-100 transition-opacity duration-300 flex items-end pointer-events-none">
+              <p class="text-white text-sm font-medium px-4 py-3">{item.caption}</p>
             </div>
           </div>
         ))

@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { projects } from "../../lib/projects";
+import { projects } from "../../data/projects";
 
 const roles = ["All", ...Array.from(new Set(projects.map((p) => p.role)))];
 ---

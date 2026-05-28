@@ -9,7 +9,14 @@
       "Bash(curl -L \"https://picsum.photos/seed/atq3/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo3.jpg\")",
       "Bash(curl -L \"https://picsum.photos/seed/atq4/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo4.jpg\")",
       "Bash(curl -L \"https://picsum.photos/seed/atq5/800/600\" -o \"E:\\\\GitHub\\\\Ateeq-Portfolio\\\\public\\\\gallery\\\\photo5.jpg\")",
-      "Bash(git *)"
+      "Bash(git *)",
+      "Bash(Get-ChildItem -Path \"E:\\\\GitHub\\\\Ateeq-Portfolio\" -Recurse -Force)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(ConvertTo-Csv -NoTypeInformation)",
+      "Bash(Out-String)",
+      "Bash(xargs ls -la)",
+      "Bash(xargs ls -lS)",
+      "Bash(awk '{print $9, $5}')"
     ]
   }
 }

@@ -1,35 +1,30 @@
 ---
 import Card from "./Card/index.astro";
 import GlobeModal from "./GlobeModal";
-
-const countries = [
-  { name: "United States", code: "us" },
-  { name: "India",         code: "in" },
-  { name: "UAE",           code: "ae" },
-];
+import { visitedCountries } from "../data/countries";
 ---
 
 <div id="countries-card-trigger" class="contents cursor-pointer">
   <Card colSpan="md:col-span-1" rowSpan="md:row-span-2" title="Countries Visited">
     <div class="flex items-center gap-3 flex-wrap mt-2">
       {
-        countries.map((c) => (
+        visitedCountries.map((c) => (
           <div class="relative group/flag">
             <img
-              alt={c.name}
+              alt={c.displayName}
               src={`https://flagcdn.com/w80/${c.code}.png`}
               class="h-5 rounded shadow cursor-pointer transition-transform duration-200 group-hover/flag:scale-110"
               width="32"
               height="20"
             />
             <span class="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap opacity-0 group-hover/flag:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
-              {c.name}
+              {c.displayName}
             </span>
           </div>
         ))
       }
     </div>
-    <p class="text-xs text-gray-500 mt-3">Click to explore</p>
+<p class="text-xs text-gray-500 mt-3">Click to explore</p>
   </Card>
 </div>
 

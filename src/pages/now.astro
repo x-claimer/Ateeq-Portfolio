@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { timeline } from "../data/timeline";
+---
+
+<script>
+  import { animate, type AnimationSequence } from "motion";
+  import { loaderAnimation } from "../lib/constants";
+  animate([loaderAnimation] as AnimationSequence);
+</script>
+
+<Layout
+  description="A timeline of what Mohammed Ateeq is up to now."
+  title="Now — Mohammed Ateeq"
+>
+  <main class="w-full min-h-screen max-w-3xl mx-auto px-6 py-10 text-neutral-100">
+    <a
+      class="inline-flex items-center gap-2 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-10 border border-neutral-600 rounded-lg text-sm transition-colors"
+      href="/"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back
+    </a>
+
+    <div class="flex items-center gap-3 mb-2">
+      <h1 class="text-4xl font-bold">Now</h1>
+      <span class="relative flex h-3 w-3 mt-1">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+      </span>
+    </div>
+
+    <div class="relative">
+      <!-- vertical line -->
+      <div class="absolute left-[7px] top-2 bottom-0 w-px bg-darkslate-100"></div>
+
+      <ol class="flex flex-col gap-8">
+        {timeline.map((entry, i) => (
+          <li class="relative pl-8">
+            <!-- dot -->
+            <span class={`absolute left-0 top-1.5 flex h-4 w-4 items-center justify-center rounded-full border ${i === 0 ? "border-red-500 bg-red-500/20" : "border-darkslate-100 bg-darkslate-500"}`}>
+              {i === 0 && <span class="h-2 w-2 rounded-full bg-red-500"></span>}
+            </span>
+
+            <p class="text-xs text-gray-500 mb-1">{entry.date}</p>
+            <h2 class="text-base font-semibold">{entry.title}</h2>
+            {entry.description && (
+              <p class="text-sm text-gray-400 mt-1">{entry.description}</p>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </main>
+</Layout>

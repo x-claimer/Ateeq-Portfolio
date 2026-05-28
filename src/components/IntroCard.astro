@@ -20,22 +20,28 @@ import { Image } from "astro:assets";
         </p>
       </div>
       <div class="flex gap-4 flex-wrap">
-        <a aria-label="github profile" href={LINKS.github} target="_blank">
+        <a aria-label="github profile" href={LINKS.github} target="_blank" title="GitHub">
           <Button aria-label="github profile">
             <Icon class="h-6" name="ri:github-fill" />
             <span class="sr-only">GitHub Profile</span>
           </Button>
         </a>
-        <a aria-label="linkedin profile" href={LINKS.linkedin} target="_blank">
+        <a aria-label="linkedin profile" href={LINKS.linkedin} target="_blank" title="LinkedIn">
           <Button aria-label="linkedin profile">
             <Icon class="h-6" name="ri:linkedin-box-fill" />
             <span class="sr-only">LinkedIn Profile</span>
           </Button>
         </a>
-        <a aria-label="email" href={LINKS.email}>
+        <a aria-label="email" href={LINKS.email} title={LINKS.email}>
           <Button aria-label="email">
             <Icon class="h-6" name="ri:mail-fill" />
             <span class="sr-only">Email</span>
+          </Button>
+        </a>
+        <a aria-label="resume" href={LINKS.resume} target="_blank" rel="noopener noreferrer" title="Resume">
+          <Button aria-label="resume">
+            <Icon class="h-6" name="ri:file-text-fill" />
+            <span class="sr-only">Resume</span>
           </Button>
         </a>
       </div>

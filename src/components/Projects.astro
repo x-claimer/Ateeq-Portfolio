@@ -3,11 +3,11 @@ import Card from "./Card/index.astro";
 import { projects } from "../data/projects";
 ---
 
-<Card colSpan="md:col-span-1" rowSpan="md:row-span-6" title="Projects" href="/projects">
-  <div class="flex flex-col mt-2 divide-y divide-darkslate-100">
+<Card colSpan="md:col-span-1" rowSpan="md:row-span-3" title="Projects" href="/projects">
+  <div class="projects-scroll flex flex-col mt-2 divide-y divide-darkslate-100 overflow-y-auto">
     {
       projects.map((project) => (
-        <div class="py-3 flex flex-col gap-1">
+        <div class="py-3 flex flex-col gap-1 flex-shrink-0">
           <span class="text-sm font-medium">{project.name}</span>
           <span class="text-xs text-gray-400">{project.role}</span>
         </div>
@@ -15,3 +15,22 @@ import { projects } from "../data/projects";
     }
   </div>
 </Card>
+
+<style>
+  .projects-scroll {
+    max-height: 11rem;
+    scrollbar-width: thin;
+    scrollbar-color: #2C2C2C transparent;
+    padding-bottom: 2.5rem;
+  }
+  .projects-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .projects-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .projects-scroll::-webkit-scrollbar-thumb {
+    background-color: #2C2C2C;
+    border-radius: 9999px;
+  }
+</style>

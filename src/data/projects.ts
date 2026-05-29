@@ -82,7 +82,7 @@ export const projects: Project[] = [
     ],
     tech: ["Astro", "TypeScript", "Tailwind CSS", "Motion", "Three.js", "Netlify"],
     links: [
-      { label: "GitHub", url: "https://github.com/MAteeq786" },
+      { label: "GitHub", url: "https://github.com/x-claimer/Ateeq-Portfolio" },
       { label: "Live Site", url: "https://mohammed-ateeq.netlify.app" },
     ],
   },

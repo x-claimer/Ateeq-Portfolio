@@ -11,9 +11,14 @@ export const timeline: TimelineEntry[] = [
     description: "Completed my Master's in Data Science at the University of Maryland.",
   },
   {
-    date: "Aug 2020 - March 2024",
-    title: "Associate Consultant(Data Engineer) at Capgemini",
-    description: "Worked as a Associate Consultant(Data Engineer) at Capgemini.",
+    date: "Apr 2022 – Jun 2024",
+    title: "Associate Consultant (Data Engineer) at Capgemini",
+    description: "Led cloud data engineering for enterprise clients including Coca-Cola and NHS Scotland.",
+  },
+  {
+    date: "Nov 2020 – Apr 2022",
+    title: "Senior Analyst (Cloud Developer) at Capgemini",
+    description: "Designed and deployed cloud-based applications on Azure and AWS, automating operations and ensuring high availability.",
   },
   {
     date: "June 2020",

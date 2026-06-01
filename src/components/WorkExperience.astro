@@ -4,15 +4,34 @@ import { workExperiences } from "../data/workExperience";
 ---
 
 <Card colSpan="md:col-span-1" rowSpan="md:row-span-3" title="Work Experience" href="/experience">
-  <div class="flex flex-col mt-2 divide-y divide-darkslate-100">
+  <div class="work-scroll flex flex-col mt-2 divide-y divide-darkslate-100 overflow-y-auto">
     {
       workExperiences.map((exp) => (
         <div class="py-3 flex flex-col gap-1">
-          <span class="text-sm font-medium">{exp.company}</span>
-          <span class="text-xs text-gray-400">{exp.role}</span>
+          <span class="text-sm font-medium">{exp.role}</span>
+          <span class="text-xs text-gray-400">{exp.company}</span>
           <span class="text-xs text-gray-500">{exp.period}</span>
         </div>
       ))
     }
   </div>
 </Card>
+
+<style>
+  .work-scroll {
+    max-height: 11rem;
+    scrollbar-width: thin;
+    scrollbar-color: #2C2C2C transparent;
+    padding-bottom: 2.5rem;
+  }
+  .work-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+  .work-scroll::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .work-scroll::-webkit-scrollbar-thumb {
+    background-color: #2C2C2C;
+    border-radius: 9999px;
+  }
+</style>

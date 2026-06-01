@@ -46,7 +46,7 @@ export const workExperiences: WorkExperience[] = [
     role: "Senior Analyst — Cloud Developer",
     period: "Nov 2020 – Apr 2022",
     description:
-      "Designed, deployed, and maintained cloud-based applications on Microsoft Azure and AWS, ensuring security compliance, high availability, and operational efficiency across Prod, Dev, and UAT environments.",
+      "Designed, deployed, and maintained cloud-based applications on Microsoft Azure, ensuring security compliance, high availability, and operational efficiency across Prod, Dev, and UAT environments.",
     highlights: [
       "Designed, developed, and deployed cloud-based applications while ensuring security compliance and high availability across Prod, Dev, and UAT environments.",
       "Managed cloud infrastructure, monitoring, and CI/CD-based deployments, preventing downtime and optimizing application access for teams and end users.",

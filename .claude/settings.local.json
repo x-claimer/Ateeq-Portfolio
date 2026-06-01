@@ -16,7 +16,8 @@
       "Bash(Out-String)",
       "Bash(xargs ls -la)",
       "Bash(xargs ls -lS)",
-      "Bash(awk '{print $9, $5}')"
+      "Bash(awk '{print $9, $5}')",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

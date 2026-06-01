@@ -67,6 +67,60 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "diagrammer",
+    name: "Diagrammer",
+    role: "ML Engineer",
+    description:
+      "An automated pipeline that generates educational science diagrams from natural language descriptions. Combines LLM-based semantic planning with grounded diffusion modeling to produce diagrams that are both visually appealing and scientifically accurate.",
+    features: [
+      "LLM planner extracts entities and spatial relationships from text into structured JSON diagram plans",
+      "LLM auditor validates and refines the plan for scientific correctness and consistency before rendering",
+      "GLIGEN diffusion model renders layout-aware, grounded diagrams from the structured plan",
+      "Post-processing pipeline enhances text clarity and contrast on generated images",
+      "Evaluated with VPEVal for structural correctness and CLIPScore for semantic alignment",
+    ],
+    tech: ["Python", "PyTorch", "GLIGEN", "Hugging Face", "FastAPI", "Pillow", "Google Colab"],
+    links: [
+      { label: "GitHub", url: "https://github.com/x-claimer/Diagrammer" },
+    ],
+  },
+  {
+    slug: "pronounce-ai",
+    name: "PronounceAI",
+    role: "ML Engineer",
+    description:
+      "A pronunciation coaching app that provides phoneme-level feedback and voice cloning with accent conversion. Analyzes learner recordings across four dimensions and renders corrected audio in the speaker's own voice using their target accent.",
+    features: [
+      "Four-signal pronunciation scoring: phoneme accuracy, intonation, stress-rhythm, and vowel quality with per-phoneme feedback",
+      "Voice cloning with accent conversion using CosyVoice 3 and Kokoro TTS in General American or Received Pronunciation",
+      "Phrase library and free-text recording with actionable improvement tips and pitch overlays",
+      "Voice Lab for text-to-speech with emotion control rendered in the learner's own cloned voice",
+      "Local session progress tracking with no account required",
+    ],
+    tech: ["Python", "FastAPI", "Next.js", "React", "TypeScript", "wav2vec2", "Whisper", "Kokoro TTS", "CosyVoice 3", "Docker"],
+    links: [
+      { label: "GitHub", url: "https://github.com/vikranthreddimasu/PronounceAI" },
+    ],
+  },
+  {
+    slug: "careflow-ai",
+    name: "CareFlowAI",
+    role: "Full Stack Developer",
+    description:
+      "An AI-powered healthcare management platform for patients, doctors, and receptionists. Integrates an AI Nurse Assistant for health report analysis, an AI Health Tutor for medical education, and smart appointment scheduling with role-based access.",
+    features: [
+      "AI Nurse Assistant: upload health reports and chat with AI for instant analysis and insights",
+      "AI Health Tutor: search medical terminology and get simple, clear explanations",
+      "Role-based appointment scheduling for patients, doctors, and receptionists",
+      "Collaborative comments on appointments with timestamps for care team coordination",
+      "JWT authentication with bcrypt hashing and granular role-based permissions",
+    ],
+    tech: ["React", "Node.js", "Express", "PostgreSQL", "JWT", "OpenAI API", "Bcrypt"],
+    links: [
+      { label: "GitHub", url: "https://github.com/x-claimer/CareFlowAI" },
+    ],
+  },
+  {
     slug: "portfolio-website",
     name: "Portfolio Website",
     role: "Full Stack Developer",

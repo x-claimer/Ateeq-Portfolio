@@ -85,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     slug: "realtime-ecommerce-pipeline",
-    name: "Real-Time E-Commerce Analytics Pipeline",
+    name: "E-Commerce Analytics Pipeline",
     role: "Data Engineer",
     description:
       "An end-to-end streaming data pipeline that simulates a live e-commerce platform, publishing user activity events to Apache Kafka and persisting them to PostgreSQL for real-time analytics. Models a realistic conversion funnel across 20 products and 500 simulated users, with a suite of business-intelligence queries covering revenue, conversion rates, and pipeline health.",
@@ -100,6 +100,32 @@ export const projects: Project[] = [
     tech: ["Python", "Apache Kafka", "PostgreSQL", "Docker", "kafka-python", "psycopg2"],
     links: [
       { label: "GitHub", url: "https://github.com/x-claimer/Ecommerce-Pipeline" },
+    ],
+  },
+  {
+    slug: "real-time-fraud-streaming-platform",
+    name: "Real-Time Fraud Streaming Platform",
+    role: "Data Engineer",
+    description:
+      "An enterprise-grade real-time fraud detection and streaming analytics platform that simulates high-volume financial transactions, streams events through Apache Kafka, and processes them using Spark Structured Streaming for near real-time fraud detection. The system combines rule-based scoring and optional ML inference, persists fraud outcomes into Delta Lake or Snowflake, and provides monitoring and analytics dashboards for operational visibility and fraud intelligence.",
+    features: [
+      "Python-based transaction generator simulates high-volume payment activity with configurable throughput and realistic fraud patterns including velocity fraud, geo anomalies, and high-value transactions",
+      "Apache Kafka streaming architecture ingests and buffers live transaction events using scalable topic-based messaging",
+      "Spark Structured Streaming pipeline performs schema validation, feature engineering, watermarking, checkpointing, and fault-tolerant stream processing",
+      "Rule-based fraud engine generates fraud scores using transaction amount thresholds, merchant risk, velocity detection, and impossible-travel logic",
+      "Optional ML fraud scoring using Random Forest or XGBoost enables hybrid fraud detection combining statistical models with business rules",
+      "Delta Lake or Snowflake storage layer supports partitioned incremental writes for raw, processed, and fraud-scored transaction datasets",
+      "Airflow orchestration manages pipeline startup checks, workflow dependencies, retry logic, and storage validation",
+      "Prometheus and Grafana monitoring track Kafka lag, throughput, fraud rate, Spark failures, and end-to-end processing latency",
+      "Docker Compose deployment provides one-command infrastructure setup for Kafka, Spark, Airflow, monitoring, and storage services",
+      "Production-style engineering practices including logging, retry handling, modular architecture, automated testing, and CI/CD workflows"
+    ],
+    tech: [
+      "Python", "Apache Kafka", "PySpark", "Spark Structured Streaming", "Apache Airflow", "Delta Lake", "Snowflake", "Docker", "Docker Compose", "Prometheus",
+      "Grafana", "FastAPI", "GitHub Actions", "Pytest"
+    ],
+    links: [
+      { label: "GitHub", url: "https://github.com/x-claimer/Real-Time-Fraud-Streaming-Platform" },
     ],
   },
   // {

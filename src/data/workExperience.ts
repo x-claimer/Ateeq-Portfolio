@@ -10,10 +10,40 @@ export interface WorkExperience {
 
 export const workExperiences: WorkExperience[] = [
   {
+    slug: "sarwatech-junior-data-architect",
+    company: "SarwaTech, Riyadh, Saudi Arabia",
+    role: "Junior Data Architect",
+    period: "July 2025 - August 2025",
+    description:
+      "Supported the design and implementation of enterprise data architecture solutions, developing scalable data models, ETL pipelines, and cloud-based data platforms to improve data accessibility, governance, and analytics capabilities across business units.",
+    highlights: [
+      "Designed and maintained conceptual, logical, and physical data models to support enterprise reporting, analytics, and operational systems.",
+      "Collaborated with data engineers and business stakeholders to define data architecture standards, data flows, and integration strategies across multiple applications.",
+      "Developed and optimized ETL/ELT pipelines, improving data quality, consistency, and processing efficiency for business-critical datasets.",
+      "Implemented data governance practices including metadata management, data lineage tracking, and validation frameworks to enhance data reliability.",
+      "Supported cloud-based data platform initiatives using Azure and SQL technologies, enabling scalable storage, reporting, and analytics solutions.",
+      "Created technical documentation, architecture diagrams, and data dictionaries to improve knowledge sharing and system maintainability."
+    ],
+    tech: [
+      "SQL",
+      "Python",
+      "Azure Data Factory",
+      "Azure SQL Database",
+      "Power BI",
+      "PostgreSQL",
+      "Microsoft SQL Server",
+      "Data Modeling",
+      "ETL/ELT",
+      "Data Governance",
+      "Data Warehousing",
+      "Git"
+    ],
+  },
+  {
     slug: "capgemini-associate-consultant",
     company: "Capgemini, Bangalore, India",
     role: "Associate Consultant — Data Engineer",
-    period: "Apr 2022 – Jun 2024",
+    period: "April 2022 – June 2024",
     description:
       "Led cloud data engineering initiatives for enterprise clients including Coca-Cola and NHS Scotland, delivering scalable data warehouse solutions, cloud migrations, and automated ETL workflows.",
     highlights: [
@@ -44,7 +74,7 @@ export const workExperiences: WorkExperience[] = [
     slug: "capgemini-senior-analyst",
     company: "Capgemini, Bangalore, India",
     role: "Senior Analyst — Cloud Developer",
-    period: "Nov 2020 – Apr 2022",
+    period: "November 2020 - April 2022",
     description:
       "Designed, deployed, and maintained cloud-based applications on Microsoft Azure, ensuring security compliance, high availability, and operational efficiency across Prod, Dev, and UAT environments.",
     highlights: [

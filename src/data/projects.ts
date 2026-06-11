@@ -128,6 +128,24 @@ export const projects: Project[] = [
       { label: "GitHub", url: "https://github.com/x-claimer/Real-Time-Fraud-Streaming-Platform" },
     ],
   },
+  {
+  slug: "chess-engine",
+  name: "Chess Engine — Play & Learn",
+  role: "Full-Stack Developer",
+  description:
+    "A full-stack chess web application built entirely in Python and hosted on Streamlit. Play against an AI opponent powered by the Minimax algorithm with Alpha-Beta pruning, or study six classical openings on an interactive step-by-step practice board with live material tracking and captured-piece display.",
+  features: [
+    "AI opponent driven by Minimax search with Alpha-Beta pruning and selectable difficulty depth",
+    "Position evaluation engine using material counts and piece-square tables for positional play",
+    "Interactive openings library: six classical openings with step-by-step practice playback",
+    "Legal-move validation, FEN parsing, and SVG board rendering via python-chess",
+    "Live material advantage tracker and captured-piece display with from-square → to-square move input",
+  ],
+  tech: ["Python", "Streamlit", "python-chess", "Minimax", "Alpha-Beta Pruning"],
+  links: [
+    { label: "GitHub", url: "https://github.com/x-claimer/Chess_Game_Engine" },
+  ],
+  },
   // {
   //   slug: "real-time-analytics-api",
   //   name: "Real-time Analytics API",

@@ -11,7 +11,7 @@ export interface WorkExperience {
 export const workExperiences: WorkExperience[] = [
   {
     slug: "sarwatech-junior-data-architect",
-    company: "SarwaTech, Riyadh, Saudi Arabia",
+    company: "SarwaTech, Dubai, UAE",
     role: "Junior Data Architect",
     period: "July 2025 - August 2025",
     description:
